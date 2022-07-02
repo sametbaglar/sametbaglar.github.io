@@ -11,7 +11,10 @@
 </head>  
     <script src="https://unpkg.com/typeit@8.0.2/dist/index.umd.js"></script>
 <body>
-    <body bgcolor="grey" style="color:black">
+    <video id="backgroundVideo" controls loop muted>
+  <source src="deneme.mp4" type="video/mp4" />
+</video>
+    <body style="color:black">
     <p class="sametbaglar"></p>
 <script>
     new TypeIt(".sametbaglar", {
@@ -24,6 +27,15 @@
     waitUntilVisible: true,
     }).go();
 </script>
+        <script>
+  window.onresize = function() {
+    var video = document.querySelector("#backgroundVideo");
+    video.play();
+    video.width = window.innerWidth;
+    video.height = window.innerHeight;
+  };
+  window.onload = function() { window.onresize(); };
+</script>
 <style>
     body{
     display: table-cell;
@@ -31,6 +43,9 @@
     vertical-align: middle;
     height: 100vh;
     width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     }
 </style>
 </body>
